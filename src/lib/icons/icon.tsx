@@ -1,0 +1,5 @@
+import from "../../assets/img/icons/"
+import from "../../assets/img/icons/"
+import from "../../assets/img/icons/"
+import from "../../assets/img/icons/"
+import from "../../assets/img/icons/"
