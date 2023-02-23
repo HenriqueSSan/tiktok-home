@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+	@font-face {
+		font-family: ProximaNova;
+		src: local('ProximaNova-Regular'),
+			url(../assets/fonts/Proxima-Nova-Regular.woff2)
+				format('woff2'),
+			url(../assets/fonts/Proxima-Nova-Regular.woff)
+				format('woff'),
+			url(../assets/fonts/Proxima-Nova-Regular.otf)
+				format('opentype');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: ProximaNova;
+		src: local('ProximaNova-Semibold'),
+			url(../assets/fonts/ProximaNova-Semibold.woff2)
+				format('woff2'),
+			url(../assets/fonts/ProximaNova-Semibold.woff)
+				format('woff'),
+			url(../assets/fonts/ProximaNova-Semibold.otf)
+				format('opentype');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: ProximaNova;
+		src: local('ProximaNova-Bold'),
+			url(../assets/fonts/Proxima-Nova-Bold.woff)
+				format('woff'),
+			url(../assets/fonts/Proxima-Nova-Bold.otf)
+				format('opentype');
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: SofiaPro;
+		src: local('SofiaPro-Regular'),
+			url(../assets/fonts/sofiapro-regular.woff)
+				format('woff'),
+			url(../assets/fonts/sofiapro-regular.otf)
+				format('opentype');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: SofiaPro;
+		src: local('SofiaPro-Medium'),
+			url(../assets/fonts/sofiapro-medium.woff)
+				format('woff'),
+			url(../assets/fonts/sofiapro-medium.otf)
+				format('opentype');
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: SofiaPro;
+		src: local('SofiaPro-Semibold'),
+			url(../assets/fonts/sofiapro-semibold.otf)
+				format('opentype');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: SofiaPro;
+		src: local('SofiaPro-Bold'),
+			url(../assets/fonts/sofiapro-bold.woff)
+				format('woff'),
+			url(../assets/fonts/sofiapro-bold.otf)
+				format('opentype');
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+}
