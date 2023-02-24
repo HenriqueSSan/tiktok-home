@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 import { AppProps } from 'next/app';
 
-import Header from '../layout/Header';
-
 import '../styles/index.css';
+import Header from '../layout/Header';
+import Sidebar from '../layout/Sidebar';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -14,7 +14,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Header />
-      <Component {...pageProps} />
+      <div className="window-content w-full mx-auto flex md:max-w-[1194px] items-center justify-between pr-6 pl-5">
+        <Sidebar />
+        <Component {...pageProps} />
+      </div>
     </>
   );
 };

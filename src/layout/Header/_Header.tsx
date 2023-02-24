@@ -7,7 +7,7 @@ import SendIcon from '../../assets/img/send-icon.svg';
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 right-0 border-b border-solid  border-common-white-100">
+    <header className="fixed w-full top-0 right-0 border-b border-solid  border-common-white-100">
       <nav className="flex items-center justify-around h-[60px]">
         <div className="flex w-full items-center justify-between md:max-w-[1150px] pr-6 pl-5">
           <a href="">

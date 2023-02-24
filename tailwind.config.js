@@ -32,11 +32,14 @@ module.exports = {
         },
       },
 
+      primary: '#ff3b5c',
+
       common: {
         white: {
           DEFAULT: '#fff',
-          200: '#ffffffe6',
           100: '#ffffff14',
+          200: '#ffffffe6',
+          300: '#ffffffbf',
         },
       },
     },

@@ -84,3 +84,43 @@
 		font-display: swap;
 	}
 }
+
+
+@layer components {
+  .window-content {
+    max-height: calc(100vh - 60px);
+  }
+
+  .sidebar__content {
+    transform-style: preserve-3d;
+    perspective-origin: right top;
+  }
+
+
+  .sidebar__content::-webkit-scrollbar {
+    background: #00000000;
+    width: 0px;
+    height: 0px;
+  }
+
+  .sidebar__content:hover.sidebar__content::-webkit-scrollbar {
+    width: 8px;
+    height: auto;
+  }
+
+  .sidebar__content::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: #00000000;
+  }
+
+  .sidebar__content:hover.sidebar__content::-webkit-scrollbar-thumb {
+    background: #ffffff14;
+  }
+
+}
+
+@layer utilities {
+  .perspective-1 {
+    perspective: 1px;
+  }
+}

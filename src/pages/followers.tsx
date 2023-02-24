@@ -8,12 +8,12 @@ const Index = () => {
       <Head>
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 
-        <title>Assista a vídeos populares para você | TikTok</title>
+        <title>
+          Seguindo - Assista aos vídeos dos criadores que você segue | TikTok
+        </title>
       </Head>
       <div>
-        <main>
-          <div></div>
-        </main>
+        <main></main>
       </div>
     </>
   );
