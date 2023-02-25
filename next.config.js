@@ -6,10 +6,29 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'loremflickr.com',
+        protocol: 'https',
+        port: '',
+      },
+    ],
+
+    domains: ['loremflickr.com'],
+  },
   reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\.svg$/i,
+      type: 'asset',
+      resourceQuery: /url/, // *.svg?url
+    });
+
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
       use: ['@svgr/webpack'],
     });
 

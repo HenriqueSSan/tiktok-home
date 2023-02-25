@@ -27,5 +27,11 @@
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true,
 		"**/.*": true
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svg]": {
+		"editor.defaultFormatter": "jock.svg"
 	}
 }
