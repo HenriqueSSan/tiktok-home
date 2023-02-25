@@ -14,7 +14,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Header />
-      <div className="window-content w-full mx-auto flex md:max-w-[1194px] items-center justify-between pr-6 pl-5">
+      <div className="window-content w-full mt-[60px] mx-auto flex md:max-w-[1194px] items-center justify-between pr-6 pl-5 ">
         <Sidebar />
         <Component {...pageProps} />
       </div>

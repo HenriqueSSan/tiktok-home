@@ -13,10 +13,6 @@ interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 // eslint-disable-next-line react/display-name
 export const NextLink = React.forwardRef(
   ({ to, ...props }: IProps, ref: any) => {
-    return (
-      <Link href={to}>
-        <a {...props} ref={ref} />
-      </Link>
-    );
+    return <Link href={to} {...props} ref={ref}></Link>;
   }
 );

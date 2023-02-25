@@ -6,6 +6,17 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'loremflickr.com',
+        protocol: 'https',
+        port: '',
+      },
+    ],
+
+    domains: ['loremflickr.com'],
+  },
   reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push({

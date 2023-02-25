@@ -2,6 +2,7 @@ module.exports = {
   darkMode: ['class', '[data-mode="dark"]'],
 
   content: ['./src/**/*.{js,ts,tsx}'],
+
   theme: {
     screens: {
       sm: '0px',
@@ -23,23 +24,33 @@ module.exports = {
     colors: {
       transparent: 'transparent',
 
-      bodyWindow: {
-        dark: {
-          DEFAULT: 'rgb(18,18,18)',
-        },
-        light: {
-          DEFAULT: '#fefefe',
-        },
+      primary: {
+        '@100': '#ff3b5c',
       },
 
-      primary: '#ff3b5c',
-
       common: {
-        white: {
-          DEFAULT: '#fff',
-          100: '#ffffff14',
-          200: '#ffffffe6',
-          300: '#ffffffbf',
+        white: '#ffffff',
+        black: '#161823',
+      },
+
+      gray: {
+        '100-opacity-90': '#ffffffe6',
+        '100-opacity-75': '#ffffffbf',
+        '100-opacity-40': '#ffffff0a',
+        '100-opacity-12': '#ffffff1f',
+        '200-opacity-75': '#161823bf',
+        '100-opacity-08': '#ffffff14',
+      },
+
+      app: {
+        dark: {
+          window: '#121212',
+          text: '#ffffffe6',
+        },
+
+        light: {
+          window: '#ffffff',
+          text: '#161823',
         },
       },
     },

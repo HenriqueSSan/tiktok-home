@@ -104,7 +104,7 @@
   }
 
   .sidebar__content:hover.sidebar__content::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     height: auto;
   }
 
@@ -116,7 +116,6 @@
   .sidebar__content:hover.sidebar__content::-webkit-scrollbar-thumb {
     background: #ffffff14;
   }
-
 }
 
 @layer utilities {

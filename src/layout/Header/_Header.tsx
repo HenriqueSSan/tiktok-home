@@ -4,10 +4,11 @@ import MessageIcon from '../../assets/img/message-icon.svg';
 import PlusIcon from '../../assets/img/plus-icon.svg';
 import SearchIcon from '../../assets/img/search-icon.svg';
 import SendIcon from '../../assets/img/send-icon.svg';
+import Link from '../../components/Link';
 
 export const Header = () => {
   return (
-    <header className="fixed w-full top-0 right-0 border-b border-solid  border-common-white-100">
+    <header className="fixed w-full top-0 right-0 border-b border-solid dark:bg-app-dark-window bg-app-light-window z-50 border-gray-100-opacity-12">
       <nav className="flex items-center justify-around h-[60px]">
         <div className="flex w-full items-center justify-between md:max-w-[1150px] pr-6 pl-5">
           <a href="">
@@ -17,13 +18,13 @@ export const Header = () => {
           <form action="">
             <fieldset className="px-2">
               <div className="flex items-center">
-                <div className="flex items-center py-3 px-4 bg-common-white-100 rounded-full">
+                <div className="flex items-center py-3 px-4 bg-gray-100-opacity-12 rounded-full">
                   <input
                     type="text"
-                    className="bg-transparent w-[292px] text-common-white placeholder:text-common-white-200 outline-none"
+                    className="bg-transparent w-[292px] text-gray-100-opacity-90 placeholder:text-[#757575] outline-none"
                     placeholder="Pesquisar contas e vídeos"
                   />
-                  <span className="block h-7 -my-[3px] bg-common-white-100 w-[1px]"></span>
+                  <span className="block h-7 -my-[3px] bg-gray-100-opacity-12 w-[1px]"></span>
                   <button
                     type="button"
                     className="pr-3 pl-4 -my-3 -mx-4 -ml-0 py-[11px] rounded-r-full"
@@ -38,32 +39,32 @@ export const Header = () => {
           <div className="flex items-center">
             <button
               type="button"
-              className="flex items-center px-4 bg-common-white-100 h-[36px] rounded-[2px]"
+              className="flex items-center px-4 bg-gray-100-opacity-12 h-[36px] rounded-[2px] text-gray-100-opacity-90"
             >
               <PlusIcon width={20} height={20} className="mr-2" />
-              <span className="text-common-white-200">Carregar</span>
+              <span>Carregar</span>
             </button>
 
-            <a className="block ml-[23px] w-8 h-8 pr-[5px] pt-[5px]" href="#">
+            <Link className="block ml-[23px] w-8 h-8 pr-[5px] pt-[5px]" to="/">
               <span>
                 <img width={22} height={22} src={EffectIcon} alt="" />
               </span>
-            </a>
+            </Link>
 
-            <a
+            <Link
               className="block ml-4 px-[3px] pt-[3px] h-[32px] w-[32px]"
-              href="#"
+              to="/"
             >
               <span>
                 <SendIcon className="w-[26px] h-[26px]" />
               </span>
-            </a>
+            </Link>
 
-            <a className="block ml-4 w-8 h-8" href="#">
+            <Link className="block ml-4 w-8 h-8" to="/">
               <span>
                 <MessageIcon className="w-8 h-8" />
               </span>
-            </a>
+            </Link>
 
             <button
               type="button"

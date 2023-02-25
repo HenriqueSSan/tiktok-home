@@ -1,147 +1,218 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { faker } from '@faker-js/faker';
 import { NextApiResponse, NextApiRequest } from 'next';
 
-export interface ISuggestionAccountUsers {
-  name: string;
-  is_verificated: boolean;
-  user_image: any;
-  message: string | undefined;
+export interface ISuggestionAccount {
+  uuuid: string | number;
+
+  user: {
+    displayName: string;
+    isVerified: boolean;
+    followerUrl: string;
+    message: string | undefined;
+    image: {
+      src: string;
+      alt: string;
+    };
+  };
+
   informations: {
     followers: string;
     likes: string;
   };
 }
 
-const suggestionAccountsUsers: ISuggestionAccountUsers[] = [
-  {
-    name: 'virginiafonseca',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
-    },
-  },
+function generationSuggestionAccount(): ISuggestionAccount {
+  const displayName = faker.name.fullName().toLowerCase().replaceAll(' ', '');
+  const isVerified = faker.datatype.boolean();
+  const message = faker.datatype.boolean() ? faker.random.words(4) : undefined;
+  const uuuid = faker.datatype.uuid();
+  const imageSrc = faker.image.imageUrl(100, 100, undefined, true);
+  const imageAlt = faker.random.words(2);
 
-  {
-    name: 'user - 2',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
-    },
-  },
+  const followers = faker.random.numeric(10).toString();
+  const likes = faker.random.numeric(10).toString();
+  const followerUrl = `@${displayName}`;
 
-  {
-    name: 'user - 3',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
-    },
-  },
+  const suggestion: ISuggestionAccount = {
+    uuuid,
+    user: {
+      displayName,
+      followerUrl,
+      isVerified,
+      message,
 
-  {
-    name: 'user - 4',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
+      image: {
+        src: imageSrc,
+        alt: imageAlt,
+      },
     },
-  },
 
-  {
-    name: 'user - 5',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
     informations: {
-      followers: '36M',
-      likes: '921.1M',
+      followers,
+      likes,
     },
-  },
+  };
 
-  {
-    name: 'user - 6',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
-    },
-  },
+  return suggestion;
+}
 
-  {
-    name: 'user - 7',
-    is_verificated: true,
-    user_image:
-      'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/767b7e15b86e0cafd5ad212c4043d6e4~c5_100x100.jpeg?x-expires=1677402000&x-signature=2UdRxzfF6NBji2IpWcCOEGYapS4%3D',
-    message: 'Virginia',
-    informations: {
-      followers: '36M',
-      likes: '921.1M',
-    },
-  },
+const suggestionAccounts: ISuggestionAccount[] = [
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
+  generationSuggestionAccount(),
 ];
 
+export interface ITagItemProps {
+  uuuid: string;
+  name: string;
+  type: 'music' | 'any';
+  url: string;
+}
+
+function generationTag(): ITagItemProps {
+  const name = faker.lorem.slug(1);
+  const type = faker.datatype.boolean() ? 'music' : 'any';
+  const uuuid = faker.datatype.uuid();
+
+  const tag: ITagItemProps = {
+    uuuid,
+    name,
+    type,
+    url: `/tag/${name}`,
+  };
+
+  return tag;
+}
+
 const suggestionExplorerTags = [
-  {
-    name: 'carnavaltiktok',
-    type: 'any',
-    url: '/tag/:name',
-  },
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+];
 
-  {
-    name: 'carnavalagitatiktok',
-    type: 'any',
-    url: '/tag/:name',
-  },
+export interface IForyouItemProps {
+  uuuid: string;
+  user: {
+    displayName: string;
+    message: string | undefined;
+    followerUrl: string;
+    image: {
+      imageSrc: string;
+      imageAlt: string;
+    };
+  };
 
-  {
-    name: 'arcane',
-    type: 'music',
-    url: '/tag/:name',
-  },
+  channel: {
+    videos: [
+      {
+        uuuid: string;
+        url: string;
+        likes: string;
+        shared: string;
+        comments: string;
+        tags: ITagItemProps[];
+      }
+    ];
+  };
+}
 
-  {
-    name: 'tag - 1',
-    type: 'any',
-    url: '/tag/:name',
-  },
+function generationForyou({
+  videoUrl,
+}: {
+  videoUrl: string;
+}): IForyouItemProps {
+  const displayName = faker.name.fullName().toLowerCase().replaceAll(' ', '');
+  const message = faker.datatype.boolean() ? faker.random.words(4) : undefined;
 
-  {
-    name: 'tag - 2',
-    type: 'any',
-    url: '/tag/:name',
-  },
+  const imageSrc = faker.image.imageUrl(100, 100, undefined, true);
+  const imageAlt = faker.random.words(2);
 
-  {
-    name: 'tag - 3',
-    type: 'any',
-    url: '/tag/:name',
-  },
+  const followerUrl = `@${displayName}`;
+
+  const foryou: IForyouItemProps = {
+    uuuid: faker.datatype.uuid(),
+    user: {
+      displayName,
+      followerUrl,
+      message,
+      image: {
+        imageSrc,
+        imageAlt,
+      },
+    },
+
+    channel: {
+      videos: [
+        {
+          uuuid: faker.datatype.uuid(),
+          url: videoUrl,
+          likes: '',
+          shared: '',
+          comments: '',
+          tags: [
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+          ],
+        },
+      ],
+    },
+  };
+
+  return foryou;
+}
+const foryou: IForyouItemProps[] = [
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  }),
+
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+  }),
+
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+  }),
+
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+  }),
+
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+  }),
+
+  generationForyou({
+    videoUrl:
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+  }),
 ];
 
 export default function getSuggestedAccounts(
-  req: NextApiRequest,
+  _: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json({
-    name: 'Henrique',
-    suggestion_accounts: suggestionAccountsUsers,
-    suggestion_explorer_tags: suggestionExplorerTags,
+  return res.status(200).json({
+    suggestionAccounts,
+    suggestionExplorerTags,
+    foryou,
   });
 }
