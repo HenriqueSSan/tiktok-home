@@ -87,10 +87,6 @@
 
 
 @layer components {
-  .window-content {
-    max-height: calc(100vh - 60px);
-  }
-
   .sidebar__content {
     transform-style: preserve-3d;
     perspective-origin: right top;

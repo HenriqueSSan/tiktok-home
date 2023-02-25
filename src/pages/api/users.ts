@@ -30,6 +30,8 @@ function generationSuggestionAccount(): ISuggestionAccount {
   const imageSrc = faker.image.imageUrl(100, 100, undefined, true);
   const imageAlt = faker.random.words(2);
 
+  const messageEmoji = message + faker.internet.emoji();
+
   const followers = faker.random.numeric(10).toString();
   const likes = faker.random.numeric(10).toString();
   const followerUrl = `@${displayName}`;
@@ -40,7 +42,7 @@ function generationSuggestionAccount(): ISuggestionAccount {
       displayName,
       followerUrl,
       isVerified,
-      message,
+      message: faker.datatype.boolean() && !!message ? messageEmoji : message,
 
       image: {
         src: imageSrc,
@@ -91,6 +93,15 @@ function generationTag(): ITagItemProps {
 }
 
 const suggestionExplorerTags = [
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
+  generationTag(),
   generationTag(),
   generationTag(),
   generationTag(),
@@ -161,6 +172,19 @@ function generationForyou({
           shared: '',
           comments: '',
           tags: [
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
+            generationTag(),
             generationTag(),
             generationTag(),
             generationTag(),
