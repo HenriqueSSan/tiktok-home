@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SuggestionAccount from '../../../components/User/SuggestionAccount';
-import { ISuggestionAccount } from '../../../pages/api/users';
+import { ISuggestionAccount } from '../../../utils/generationAccounts';
 import { ParagraphList } from '../global/_ParagraphList';
 
 interface ISuggestionAccountUsersListProps {

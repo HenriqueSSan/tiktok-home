@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import CommentIcon from '../assets/img/comment-icon.svg';
+import HeartIcon from '../assets/img/heart-icon.svg';
+import SharedIcon from '../assets/img/shared-icon.svg';
 import Link from '../components/Link';
 import { Paragraph } from '../components/Ui/Texts/Paragraph';
 import { IUsersData } from '../layout/Sidebar/_Sidebar';
@@ -37,9 +40,12 @@ const Index = () => {
       <main className="py-[24px] mx-4 max-w-[692px] w-full">
         <div>
           <div className="grid">
-            {userData.foryou.map(({ user, uuuid, channel }) => {
+            {userData.foryou.map(({ user, uuid, channel }) => {
               return (
-                <div className="py-[20px] relative" key={uuuid}>
+                <div
+                  className="py-[20px] relative after:absolute after:bottom-0 after:block after:w-full after:h-[1px] after:bg-gray-100-opacity-12"
+                  key={uuid}
+                >
                   <div className="flex items-start">
                     <div className="flex items-center justify-between min-w-[56px] h-[56px]">
                       <Link to={`/${user.followerUrl}`}>
@@ -48,8 +54,8 @@ const Index = () => {
                             width={56}
                             height={56}
                             className="rounded-full"
-                            src={user.image.imageSrc}
-                            alt={user.image.imageAlt}
+                            src={user.image.src}
+                            alt={user.image.alt}
                           />
                         </figure>
                       </Link>
@@ -69,20 +75,20 @@ const Index = () => {
                           </Link>
 
                           <Link
-                            className="flex items-center justify-center absolute top-[28px] min-w-[88px] right-0 px-[10px] text-primary-@100 bg-gray-100-opacity-12 border border-solid border-primary-@100 rounded-[6px]"
+                            className="flex items-center justify-center absolute font-primary font-semibold top-[28px] min-w-[88px] right-0 px-[10px] text-primary-@100 bg-gray-100-opacity-12 border border-solid border-primary-@100 rounded-[6px]"
                             to={`/${user.followerUrl}`}
                           >
                             Seguir
                           </Link>
                         </div>
-                        <div className="flex flex-wrap justify-start items-start">
+                        <div className="flex flex-wrap justify-start items-start mb-3">
                           {channel.videos[0].tags.map(
-                            ({ uuuid: _uuuid, name, url }) => {
+                            ({ uuid: _uuid, name, url }) => {
                               return (
-                                <div key={_uuuid}>
+                                <div key={_uuid}>
                                   <Link
                                     to={url}
-                                    className="flex items-center rounded-full mr-2 leading-[18px] h-[24px] mb-[12px] py-[3px]"
+                                    className="flex items-center rounded-full mr-2 leading-[18px] h-[24px] py-[3px]"
                                   >
                                     <Paragraph
                                       as="strong"
@@ -97,12 +103,25 @@ const Index = () => {
                           )}
                         </div>
                       </div>
+                      <div className="flex items-end">
+                        <video
+                          className="max-w-[283px] rounded-[10px] h-[calc(450px_+_(100vw_-_768px)_/_1152_*_100)] object-cover"
+                          controls
+                          src={channel.videos[0].url}
+                        ></video>
 
-                      <video
-                        className="max-w-[283px] rounded-[10px] h-[calc(450px_+_(100vw_-_768px)_/_1152_*_100)] object-cover"
-                        controls
-                        src={channel.videos[0].url}
-                      ></video>
+                        <div className="ml-4">
+                          <div className="w-[48px] h-[48px] flex items-center justify-center bg-gray-100-opacity-08 mb-4 rounded-full">
+                            <HeartIcon />
+                          </div>
+                          <div className="w-[48px] h-[48px] flex items-center justify-center bg-gray-100-opacity-08 mb-4 rounded-full">
+                            <CommentIcon />
+                          </div>
+                          <div className="w-[48px] h-[48px] flex items-center justify-center bg-gray-100-opacity-08 rounded-full">
+                            <SharedIcon />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

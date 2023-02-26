@@ -56,7 +56,7 @@ module.exports = {
     },
 
     fontFamily: {
-      primary: ['Proxima Nova', 'Roboto', 'Arial', 'Helvetica', 'sans-serif'],
+      primary: ['ProximaNova', 'Roboto', 'Arial', 'Helvetica', 'sans-serif'],
       secondary: ['SofiaPro', 'Roboto', 'Arial', 'Helvetica', 'sans-serif'],
     },
 

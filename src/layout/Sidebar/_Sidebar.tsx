@@ -9,11 +9,9 @@ import HashTagIcon from '../../assets/img/hash-tag-icon.svg';
 import MusicTagIcon from '../../assets/img/music-tag-icon.svg';
 import Link from '../../components/Link';
 import { Paragraph } from '../../components/Ui/Texts/Paragraph';
-import {
-  IForyouItemProps,
-  ISuggestionAccount,
-  ITagItemProps,
-} from '../../pages/api/users';
+import { ISuggestionAccount } from '../../utils/generationAccounts';
+import { IForyouItemProps } from '../../utils/generationForyou';
+import { ITagItemProps } from '../../utils/generationTags';
 
 export interface IUsersData {
   suggestionAccounts: ISuggestionAccount[];
@@ -64,9 +62,9 @@ export const Sidebar = () => {
 
               <ul className="flex flex-wrap justify-start items-start">
                 {userData.suggestionExplorerTags.map(
-                  ({ uuuid, name, type, url }) => {
+                  ({ uuid, name, type, url }) => {
                     return (
-                      <li key={uuuid}>
+                      <li key={uuid}>
                         <Link
                           to={url}
                           className="flex items-center rounded-full mr-2 bg-gray-100-opacity-08 leading-[18px] h-[24px] mb-[12px] px-[10px] py-[3px]"
