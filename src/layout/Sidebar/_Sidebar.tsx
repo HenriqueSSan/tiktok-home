@@ -2,18 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
-import { $AccountsUserFollowList } from './containers/_AccountsUserFollowList';
+import { $Explorer } from './containers/_Explorer';
 import { $Navigation } from './containers/_Navigation';
-import { $SuggestionUsersList } from './containers/_SuggestionUsersList';
-import HashTagIcon from '../../assets/img/hash-tag-icon.svg';
-import MusicTagIcon from '../../assets/img/music-tag-icon.svg';
-import Link from '../../components/Link';
-import { Paragraph } from '../../components/Ui/Texts/Paragraph';
-import {
-  IForyouItemProps,
-  ISuggestionAccount,
-  ITagItemProps,
-} from '../../pages/api/users';
+import { $SuggestionUsersList } from './containers/_SuggestionUsers';
+import { $AccountsUserFollowList } from './containers/_UserFollow';
+import { ISuggestionAccount } from '../../utils/generationAccounts';
+import { IForyouItemProps } from '../../utils/generationForyou';
+import { ITagItemProps } from '../../utils/generationTags';
 
 export interface IUsersData {
   suggestionAccounts: ISuggestionAccount[];
@@ -57,37 +52,7 @@ export const Sidebar = () => {
               accountsUserFollow={userData.suggestionAccounts}
             />
 
-            <div className="relative pt-4 px-2 pb-2 before:absolute before:top-0 before:block before:w-full before:h-[1px] before:bg-gray-100-opacity-12 max-[1280px]:hidden">
-              <Paragraph className="text-gray-100-opacity-75 text-[14px] pb-4 leading-[20px]">
-                Descobrir
-              </Paragraph>
-
-              <ul className="flex flex-wrap justify-start items-start">
-                {userData.suggestionExplorerTags.map(
-                  ({ uuuid, name, type, url }) => {
-                    return (
-                      <li key={uuuid}>
-                        <Link
-                          to={url}
-                          className="flex items-center rounded-full mr-2 bg-gray-100-opacity-08 leading-[18px] h-[24px] mb-[12px] px-[10px] py-[3px]"
-                        >
-                          {type === 'any' && (
-                            <HashTagIcon width={16} height={16} />
-                          )}
-                          {type === 'music' && (
-                            <MusicTagIcon width={16} height={16} />
-                          )}
-
-                          <Paragraph className="pl-2 text-sm text-[#ffffffbf] whitespace-nowrap font-primary overflow-hidden">
-                            {name}
-                          </Paragraph>
-                        </Link>
-                      </li>
-                    );
-                  }
-                )}
-              </ul>
-            </div>
+            <$Explorer suggestionTags={userData.suggestionExplorerTags} />
           </div>
         </div>
       </div>
