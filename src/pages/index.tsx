@@ -6,7 +6,7 @@ import Image from 'next/image';
 import CommentIcon from '../assets/img/comment-icon.svg';
 import HeartIcon from '../assets/img/heart-icon.svg';
 import SharedIcon from '../assets/img/shared-icon.svg';
-import Link from '../components/Link';
+import Link from '../components/Ui/Link';
 import { Paragraph } from '../components/Ui/Texts/Paragraph';
 import { IUsersData } from '../layout/Sidebar/_Sidebar';
 

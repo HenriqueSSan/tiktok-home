@@ -7,7 +7,7 @@ import { $Navigation } from './containers/_Navigation';
 import { $SuggestionUsersList } from './containers/_SuggestionUsersList';
 import HashTagIcon from '../../assets/img/hash-tag-icon.svg';
 import MusicTagIcon from '../../assets/img/music-tag-icon.svg';
-import Link from '../../components/Link';
+import Link from '../../components/Ui/Link';
 import { Paragraph } from '../../components/Ui/Texts/Paragraph';
 import { ISuggestionAccount } from '../../utils/generationAccounts';
 import { IForyouItemProps } from '../../utils/generationForyou';

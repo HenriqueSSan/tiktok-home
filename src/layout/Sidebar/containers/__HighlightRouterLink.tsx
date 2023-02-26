@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { useRouter } from 'next/router';
 
-import Link from '../../../components/Link';
+import Link from '../../../components/Ui/Link';
 import { Title } from '../../../components/Ui/Texts/Titles';
 
 interface IHighlightLinkProps {

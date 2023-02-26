@@ -1,7 +1,7 @@
 import { ISuggestionAccountProps } from './@types';
 import VerificatedAccountIcon from './assets/img/verificated-account-icon.svg';
 import { $Image } from './global/_Image';
-import Link from '../../Link';
+import Link from '../../Ui/Link';
 import { Paragraph } from '../../Ui/Texts/Paragraph';
 import { Title } from '../../Ui/Texts/Titles';
 
