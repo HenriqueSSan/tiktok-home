@@ -1,8 +1,6 @@
-import React from 'react';
-
-import SuggestionAccount from '../../../components/User/SuggestionAccount';
+import SuggestionAccount from '../../../components/SuggestionAccount';
+import { Paragraph } from '../../../components/Ui/Texts/Paragraph';
 import { ISuggestionAccount } from '../../../utils/generationAccounts';
-import { ParagraphList } from '../global/_ParagraphList';
 
 interface ISuggestionAccountUsersListProps {
   suggestionAccounts: ISuggestionAccount[];
@@ -13,7 +11,9 @@ export function $SuggestionUsersList({
 }: ISuggestionAccountUsersListProps) {
   return (
     <div className="relative py-4 before:absolute before:top-0 before:block before:w-full before:h-[1px] before:bg-gray-100-opacity-12">
-      <ParagraphList>Contas sugeridas</ParagraphList>
+      <Paragraph className="text-gray-100-opacity-75 mb-2 px-2 text-[14px] leading-[20px] max-[1280px]:hidden">
+        Contas sugeridas
+      </Paragraph>
 
       <ul>
         {suggestionAccounts.map(
